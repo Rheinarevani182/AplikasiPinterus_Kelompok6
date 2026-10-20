@@ -1,83 +1,83 @@
 # Pinterus
 
-**Pinterus** adalah aplikasi berbagi dan menjelajahi inspirasi visual yang terinspirasi dari Pinterest. Nama Pinterus merupakan plesetan dari nama Pinterest. Proyek ini dikembangkan sebagai bagian dari pembelajaran pengembangan aplikasi bergerak menggunakan Flutter.
-
-## Anggota Kelompok 6
-
-| No. | Nama Anggota | NIM |
-| 1 | [Muhammad Difaa Ihlasulamal Munaf] | [24051214178] |
-| 2 | [Rheina Revani] | [ 24051214182] |
-| 3 | [Isnaini Safitri Nurkartika Putri] | [ 24051214194] |
-| 4 | [Nizhar Harry Mukti] | [ 2405121420] |
-
-*Sesuaikan tabel dengan jumlah anggota kelompok yang sebenarnya.*
+Pinterus adalah aplikasi berbagi inspirasi visual yang terinspirasi dari Pinterest. Pengguna dapat menemukan, menyimpan, dan membagikan pin, serta terhubung dengan kreator lain.
 
 ## Identitas Aplikasi
 
-- **Nama aplikasi:** Pinterus
-- **Aplikasi inspirasi:** Pinterest
-- **Jenis aplikasi:** Aplikasi berbagi dan menjelajahi pin visual
-- **Framework:** Flutter
-- **Bahasa pemrograman:** Dart
+- **Aplikasi asli:** Pinterest
+- **Nama plesetan:** Pinterus
 
-## Deskripsi Aplikasi
+## Anggota Kelompok
 
-Pinterus merupakan aplikasi yang mengadaptasi konsep Pinterest, yaitu platform untuk menemukan dan menyimpan inspirasi visual dalam bentuk pin. Aplikasi ini dikembangkan dengan Flutter untuk membangun antarmuka yang dapat digunakan pada platform yang didukung.
+| No. | Nama | NIM |
+| --- | --- | --- |
+| 1 | MUHAMMAD DIFAA IHLASULAMAL MUNAF | 24051214178 |
+| 2 | RHEINA REVANI | 24051214182 |
+| 3 | ISNAINI SAFITRI NURKARTIKA PUTRI | 24051214194 |
+| 4 | NIZHAR HARRY MUKTI | 24051214210 |
 
-Fitur dan integrasi yang tersedia mengikuti implementasi kode dalam proyek.
+## Teknologi
 
-## Teknologi yang Digunakan
+- **Backend:** Laravel 13, PHP 8.3, Laravel Sanctum
+- **Database:** SQLite (konfigurasi bawaan)
+- **Aplikasi mobile:** Flutter
 
-- **Flutter:** Framework untuk pengembangan aplikasi.
-- **Dart:** Bahasa pemrograman yang digunakan dalam Flutter.
-- **API:** Digunakan untuk komunikasi dengan backend apabila layanan API telah dikonfigurasi.
+## Fitur Utama
 
-## Persiapan Menjalankan Aplikasi
+- Registrasi, login, dan logout.
+- Menjelajahi pin serta mencari berdasarkan kata kunci dan kategori.
+- Membuat pin dengan gambar, judul, deskripsi, kategori, dan tautan opsional.
+- Menyimpan pin untuk dilihat kembali.
+- Membuka tautan pin, membagikan, melaporkan, atau menghapus pin milik sendiri.
+- Melihat dan mengubah profil, mengikuti pengguna lain, serta mengatur akun privat.
 
-Pastikan perangkat telah memiliki:
+## Alur Penggunaan
 
-1. Flutter SDK.
-2. Visual Studio Code atau IDE yang mendukung Flutter.
-3. Perangkat Android, emulator Android, atau browser Chrome jika aplikasi mendukung web.
+1. Buka aplikasi. Jika belum memiliki sesi, daftar atau masuk menggunakan akun Pinterus.
+2. Setelah berhasil masuk, aplikasi menampilkan beranda berisi pin yang dapat dilihat oleh pengguna. Sesi login disimpan agar dapat dipulihkan saat aplikasi dibuka kembali.
+3. Cari inspirasi menggunakan kolom pencarian atau pilih kategori, lalu buka pin untuk melihat detailnya.
+4. Simpan pin yang disukai untuk menemukannya kembali di halaman pin tersimpan. Dari detail pin, pengguna juga dapat membuka tautan, membagikan, atau melaporkannya.
+5. Untuk menerbitkan pin, pilih aksi buat pin, ambil gambar dari perangkat, isi judul dan informasi lainnya, lalu terbitkan.
+6. Buka profil untuk melihat pin dan informasi pengguna. Pengguna dapat mengikuti akun lain, mengubah profil, dan mengatur privasi akunnya.
+7. Keluar melalui pengaturan akun. Sesi pada perangkat akan dihapus.
 
-Periksa instalasi Flutter dengan perintah:
+## Menjalankan Proyek
 
-```bash
-flutter doctor
+### 1. Siapkan backend Laravel
+
+Pastikan PHP 8.3, Composer, dan Flutter SDK tersedia. Dari folder utama proyek, jalankan:
+
+```powershell
+composer install
+Copy-Item .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan storage:link
+php artisan serve --host=0.0.0.0 --port=8000
 ```
 
-## Cara Menjalankan Proyek
+Perintah `Copy-Item` diperlukan saat menyiapkan salinan proyek baru yang belum memiliki file `.env`. Migrasi menggunakan SQLite sesuai konfigurasi bawaan.
 
-1. Buka folder utama proyek Pinterus di Visual Studio Code.
-2. Buka terminal pada folder yang berisi file `pubspec.yaml`.
-3. Unduh dependensi proyek:
+### 2. Jalankan aplikasi Flutter
 
-   ```bash
-   flutter pub get
-   ```
+Buka terminal kedua, lalu masuk ke folder aplikasi:
 
-4. Periksa perangkat yang tersedia:
-
-   ```bash
-   flutter devices
-   ```
-
-5. Jalankan aplikasi:
-
-   ```bash
-   flutter run
-   ```
-
-Untuk menjalankan aplikasi bisa menulis kode ini:
-
-```bash
-flutter run 
+```powershell
+cd pinterus_mobile
+flutter pub get
+flutter run -d chrome
 ```
 
-## Konfigurasi API
+Untuk Android Emulator, gunakan:
 
-Jika aplikasi menggunakan API, pastikan alamat server dan endpoint telah disesuaikan dengan konfigurasi backend yang digunakan. Jangan menyertakan password, token rahasia, atau kredensial pribadi di repository publik.
+```powershell
+flutter run -d emulator-5554
+```
 
-## Catatan
+Aplikasi menggunakan `http://10.0.2.2:8000/api` secara bawaan pada Android Emulator dan `http://127.0.0.1:8000/api` pada web. Untuk perangkat Android fisik, arahkan aplikasi ke alamat IP komputer yang menjalankan backend:
 
-README ini perlu disesuaikan dengan implementasi akhir proyek, termasuk nama dan NIM seluruh anggota, daftar fitur yang benar-benar tersedia, serta konfigurasi API yang digunakan.
+```powershell
+flutter run --dart-define=API_BASE_URL=http://192.168.1.10:8000/api
+```
+
+Ganti `192.168.1.10` dengan alamat IP komputer. Pastikan komputer dan perangkat berada di jaringan yang sama, dan backend dijalankan dengan `--host=0.0.0.0`.
