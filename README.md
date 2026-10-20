@@ -1,40 +1,83 @@
-# Pinterus Mobile
+# Pinterus
 
-## Menjalankan aplikasi
+**Pinterus** adalah aplikasi berbagi dan menjelajahi inspirasi visual yang terinspirasi dari Pinterest. Nama Pinterus merupakan plesetan dari nama Pinterest. Proyek ini dikembangkan sebagai bagian dari pembelajaran pengembangan aplikasi bergerak menggunakan Flutter.
 
-Jalankan backend Laravel dari folder utama repository:
+## Anggota Kelompok 6
 
-```powershell
-php artisan migrate
-php artisan storage:link
-php artisan serve --host=0.0.0.0 --port=8000
+| No. | Nama Anggota | NIM |
+| 1 | [Muhammad Difaa Ihlasulamal Munaf] | [24051214178] |
+| 2 | [Rheina Revani] | [ 24051214182] |
+| 3 | [Isnaini Safitri Nurkartika Putri] | [ 24051214194] |
+| 4 | [Nizhar Harry Mukti] | [ 2405121420] |
+
+*Sesuaikan tabel dengan jumlah anggota kelompok yang sebenarnya.*
+
+## Identitas Aplikasi
+
+- **Nama aplikasi:** Pinterus
+- **Aplikasi inspirasi:** Pinterest
+- **Jenis aplikasi:** Aplikasi berbagi dan menjelajahi pin visual
+- **Framework:** Flutter
+- **Bahasa pemrograman:** Dart
+
+## Deskripsi Aplikasi
+
+Pinterus merupakan aplikasi yang mengadaptasi konsep Pinterest, yaitu platform untuk menemukan dan menyimpan inspirasi visual dalam bentuk pin. Aplikasi ini dikembangkan dengan Flutter untuk membangun antarmuka yang dapat digunakan pada platform yang didukung.
+
+Fitur dan integrasi yang tersedia mengikuti implementasi kode dalam proyek.
+
+## Teknologi yang Digunakan
+
+- **Flutter:** Framework untuk pengembangan aplikasi.
+- **Dart:** Bahasa pemrograman yang digunakan dalam Flutter.
+- **API:** Digunakan untuk komunikasi dengan backend apabila layanan API telah dikonfigurasi.
+
+## Persiapan Menjalankan Aplikasi
+
+Pastikan perangkat telah memiliki:
+
+1. Flutter SDK.
+2. Visual Studio Code atau IDE yang mendukung Flutter.
+3. Perangkat Android, emulator Android, atau browser Chrome jika aplikasi mendukung web.
+
+Periksa instalasi Flutter dengan perintah:
+
+```bash
+flutter doctor
 ```
 
-Lalu dari folder `pinterus_mobile`:
+## Cara Menjalankan Proyek
 
-```powershell
-flutter pub get
-flutter run -d chrome
+1. Buka folder utama proyek Pinterus di Visual Studio Code.
+2. Buka terminal pada folder yang berisi file `pubspec.yaml`.
+3. Unduh dependensi proyek:
+
+   ```bash
+   flutter pub get
+   ```
+
+4. Periksa perangkat yang tersedia:
+
+   ```bash
+   flutter devices
+   ```
+
+5. Jalankan aplikasi:
+
+   ```bash
+   flutter run
+   ```
+
+Untuk menjalankan aplikasi bisa menulis kode ini:
+
+```bash
+flutter run 
 ```
 
-Untuk Android Emulator, gunakan `flutter run -d emulator-5554`. Aplikasi otomatis
-mengakses backend emulator melalui `http://10.0.2.2:8000/api`. Untuk perangkat
-Android fisik, arahkan `API_BASE_URL` ke alamat IP komputer yang dapat dijangkau
-perangkat tersebut:
+## Konfigurasi API
 
-```powershell
-flutter run --dart-define=API_BASE_URL=http://192.168.1.10:8000/api
-```
+Jika aplikasi menggunakan API, pastikan alamat server dan endpoint telah disesuaikan dengan konfigurasi backend yang digunakan. Jangan menyertakan password, token rahasia, atau kredensial pribadi di repository publik.
 
-Ganti `192.168.1.10` dengan alamat IP komputer. Pastikan perangkat dan komputer
-berada di jaringan yang sama. Jalankan backend dengan `--host=0.0.0.0` agar
-perangkat dapat mengaksesnya.
+## Catatan
 
-## Fitur
-
-- Daftar, masuk, dan keluar dengan sesi yang tersimpan di perangkat.
-- Jelajahi pin, buka tautan tujuan, simpan, bagikan, laporkan, dan hapus pin
-  milik sendiri.
-- Buat pin dari gambar galeri, edit dan bagikan profil, serta ikuti profil lain.
-
-Logo Pinterus tersedia di `assets/images/pinterus_logo.jpg`.
+README ini perlu disesuaikan dengan implementasi akhir proyek, termasuk nama dan NIM seluruh anggota, daftar fitur yang benar-benar tersedia, serta konfigurasi API yang digunakan.
