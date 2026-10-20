@@ -24,6 +24,7 @@ class PinGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return MasonryGridView.count(
       padding: const EdgeInsets.fromLTRB(12, 12, 12, 20),
+      physics: const AlwaysScrollableScrollPhysics(),
       crossAxisCount: 2,
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
@@ -78,26 +79,28 @@ class PinGridItem extends StatelessWidget {
                 onTap: () => onOpenPin(pin),
                 child: AspectRatio(
                   aspectRatio: aspectRatio,
-                  child: Hero(
-                    tag: 'pin-image-${pin.id}',
-                    child: CachedNetworkImage(
-                      imageUrl: imageUrl,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => const ColoredBox(
-                        color: Color(0xFFF1F1F1),
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Color(0xFF777777),
+                  child: RepaintBoundary(
+                    child: Hero(
+                      tag: 'pin-image-${pin.id}',
+                      child: CachedNetworkImage(
+                        imageUrl: imageUrl,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => const ColoredBox(
+                          color: Color(0xFFF1F1F1),
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Color(0xFF777777),
+                            ),
                           ),
                         ),
-                      ),
-                      errorWidget: (context, url, error) => const ColoredBox(
-                        color: Color(0xFFF1F1F1),
-                        child: Center(
-                          child: Icon(
-                            Icons.broken_image_outlined,
-                            color: Color(0xFF777777),
+                        errorWidget: (context, url, error) => const ColoredBox(
+                          color: Color(0xFFF1F1F1),
+                          child: Center(
+                            child: Icon(
+                              Icons.broken_image_outlined,
+                              color: Color(0xFF777777),
+                            ),
                           ),
                         ),
                       ),
